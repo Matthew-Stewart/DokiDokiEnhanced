@@ -39,44 +39,44 @@ init -1 python hide:
     ## The theme function takes a number of parameters that can
     ## customize the color scheme.
 
-    theme.marker(
-        ## Theme: Marker
-        ## Color scheme: Really Red
+    theme.tv(
+        ## Theme: TV
+        ## Color scheme: Strawberry Orchard
 
         ## The color of an idle widget face.
-        widget = "#963232",
+        widget = "#525748",
 
         ## The color of a focused widget face.
-        widget_hover = "#c83232",
+        widget_hover = "#f45c73",
 
         ## The color of the text in a widget.
-        widget_text = "#ffffff",
+        widget_text = "#e7f3cb",
 
         ## The color of the text in a selected widget. (For
         ## example, the current value of a preference.)
-        widget_selected = "#ffffc8",
+        widget_selected = "#ffce95",
 
         ## The color of a disabled widget face.
-        disabled = "#404040",
+        disabled = "#b3c292",
 
         ## The color of disabled widget text.
-        disabled_text = "#c8c8c8",
+        disabled_text = "#525748",
 
         ## The color of informational labels.
-        label = "#ffffff",
+        label = "#525748",
 
         ## The color of a frame containing widgets.
-        frame = "#e17373",
+        frame = "#d8ebae",
 
         ## The background of the main menu. This can be a color
         ## beginning with '#', or an image filename. The latter
         ## should take up the full height and width of the screen.
-        mm_root = "#ffd0d0",
+        mm_root = "images/main.png",
 
         ## The background of the game menu. This can be a color
         ## beginning with '#', or an image filename. The latter
         ## should take up the full height and width of the screen.
-        gm_root = "#ffd0d0",
+        gm_root = "images/main.png",
 
         ## If this is True, the in-game window is rounded. If False,
         ## the in-game window is square.
@@ -101,18 +101,18 @@ init -1 python hide:
     ## Margin is space surrounding the window, where the background
     ## is not drawn.
 
-    # style.window.left_margin = 6
-    # style.window.right_margin = 6
-    # style.window.top_margin = 6
-    # style.window.bottom_margin = 6
+    # style.window.left_margin = 0
+    # style.window.right_margin = 0
+    # style.window.top_margin = 0
+    # style.window.bottom_margin = 0
 
     ## Padding is space inside the window, where the background is
     ## drawn.
 
-    # style.window.left_padding = 6
-    # style.window.right_padding = 6
-    # style.window.top_padding = 6
-    # style.window.bottom_padding = 6
+    # style.window.left_padding = 0
+    # style.window.right_padding = 0
+    # style.window.top_padding = 0
+    # style.window.bottom_padding = 0
 
     ## This is the minimum height of the window, including the margins
     ## and padding.
@@ -149,8 +149,7 @@ init -1 python hide:
 
     ## The default size of text.
 
-    # style.default.size = 22
-
+    # style.default.size = 21
     ## Note that these only change the size of some of the text. Other
     ## buttons have their own styles.
 

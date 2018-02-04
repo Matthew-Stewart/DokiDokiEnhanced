@@ -2,6 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 125: Tab characters are not allowed in Ren'Py scripts.
+File "game/screens.rpy", line 226: u'textalign' is not a keyword argument or valid child for the frame statement.
+    textalign left
+             ^
 
 Ren'Py Version: Ren'Py 6.99.8.959

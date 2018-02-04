@@ -186,7 +186,8 @@ screen main_menu():
     # The main menu buttons.
     frame:
         style_group "mm"
-        xalign .98
+        xpadding 10
+        ypadding 10
         yalign .98
 
         has vbox
