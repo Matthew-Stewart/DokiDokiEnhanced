@@ -2,7 +2,7 @@ import cv2
 import json
 from google.cloud import vision
 from collections import OrderedDict
-
+from google.oauth2 import service_account
 
 
 class Reaction:
@@ -12,18 +12,26 @@ class Reaction:
       self.ramp_frames = ramp_frames
 
    def _get_image(self):
-      camera = cv2.VideoCapture(self.camera_port)
+      camera = None
       try:
+         camera = cv2.VideoCapture(self.camera_port)
          for i in xrange(self.ramp_frames):
             camera.read()[1]
          camera_capture = camera.read()[1]
+      except:
+         return None
       finally:
-         del(camera)
+         if camera:
+            del(camera)
       return cv2.imencode('.jpg', camera_capture)[1].tostring()
 
    def get_mood(self):
       image = self._get_image()
-      client = vision.ImageAnnotatorClient()
+      if not image:
+         # camera in use or no camera
+         return None
+      credentials = service_account.Credentials.from_service_account_file('/home/apollo/Downloads/CP_VN-8c60f16ddaa8.json')
+      client = vision.ImageAnnotatorClient(credentials=credentials)
       response = client.annotate_image({
          'image': {'content': image},
          'features': [{'type': vision.enums.Feature.Type.FACE_DETECTION}],
@@ -46,3 +54,4 @@ class Reaction:
 
 if __name__ == '__main__':
    print(Reaction().get_mood())
+
