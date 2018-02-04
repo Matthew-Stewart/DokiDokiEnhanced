@@ -12,17 +12,24 @@ class Reaction:
       self.ramp_frames = ramp_frames
 
    def _get_image(self):
-      camera = cv2.VideoCapture(self.camera_port)
+      camera = None
       try:
+         camera = cv2.VideoCapture(self.camera_port)
          for i in xrange(self.ramp_frames):
             camera.read()[1]
          camera_capture = camera.read()[1]
+      except:
+         return None
       finally:
-         del(camera)
+         if camera:
+            del(camera)
       return cv2.imencode('.jpg', camera_capture)[1].tostring()
 
    def get_mood(self):
       image = self._get_image()
+      if not image:
+         # camera in use or no camera
+         return None
       credentials = service_account.Credentials.from_service_account_file('/path/to/json.json')
       client = vision.ImageAnnotatorClient(credentials=credentials)
       response = client.annotate_image({
