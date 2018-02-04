@@ -2,7 +2,7 @@ import cv2
 import json
 from google.cloud import vision
 from collections import OrderedDict
-
+from google.oauth2 import service_account
 
 
 class Reaction:
@@ -23,7 +23,8 @@ class Reaction:
 
    def get_mood(self):
       image = self._get_image()
-      client = vision.ImageAnnotatorClient()
+      credentials = service_account.Credentials.from_service_account_file('/path/to/json.json')
+      client = vision.ImageAnnotatorClient(credentials=credentials)
       response = client.annotate_image({
          'image': {'content': image},
          'features': [{'type': vision.enums.Feature.Type.FACE_DETECTION}],
