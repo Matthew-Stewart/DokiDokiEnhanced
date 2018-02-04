@@ -30,7 +30,7 @@ class Reaction:
       if not image:
          # camera in use or no camera
          return None
-      credentials = service_account.Credentials.from_service_account_file('/home/apollo/Downloads/CP_VN-8c60f16ddaa8.json')
+      credentials = service_account.Credentials.from_service_account_file('/path/to/json.json')
       client = vision.ImageAnnotatorClient(credentials=credentials)
       response = client.annotate_image({
          'image': {'content': image},
