@@ -188,20 +188,23 @@ label start:
         ms "Why do I get the feeling you’re about to say something stupid to her?"
         mc "Too late. She’ll get what’s coming to her"
 
+        hide ms-ang
         jump eighth
     elif temp == "anger":
         show ms-con
         
         ms "I think you should take some time to clear your head first."
         mc "Yeah, you're probably right."
-
+        
+        hide ms-con
         jump ninth
     elif temp == "sorrow":
         show ms-con
         
         ms "You sure? You don’t look so good."
         mc "Yeah, I’m gonna go home."
-
+        
+        hide mg-con
         jump ninth                       
     elif temp == "surprise":
         show ms-neu
@@ -209,6 +212,7 @@ label start:
         ms "Yeah… you should."
         mc "I have a bad feeling bad about this..."
        
+        hide ms-neu
         jump eighth
         
     else:
@@ -217,6 +221,7 @@ label start:
         ms "Why do I get the feeling you’re about to say something stupid to her?"
         mc "Too late. She’ll get what’s coming to her"
         
+        hide ms-ang
         jump eighth
         
     label seventh:
@@ -231,6 +236,7 @@ label start:
            ms "You're such a jerk lmao."
            mc "I know. ;)"
            
+           hide ms-joy
            jump eighth
            
         else:
@@ -239,6 +245,7 @@ label start:
            ms "You don’t need to be that hard on yourself. I’m sure you did fine."
            mc "Yeah, I’m fine. {i}Everything’s fine.{/i}"
           
+           hide ms-joy
            jump ninth
     
     # Part 2          
@@ -383,7 +390,7 @@ label start:
     label romance:
        play music "Cheery_Monday.mp3"
        show sy-joy
-       n "She kisses you"
+       n "She leans in."
        
        python:
           import response
@@ -396,6 +403,6 @@ label start:
        elif temp == "sorrow":
           s "It’s okay! I feel the same way about you!"
        else:
-          s "I love you, MC-chan!"
+          s "I love you, [urname]-chan!"
           
        return
