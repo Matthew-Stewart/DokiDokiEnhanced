@@ -204,7 +204,7 @@ label start:
         ms "You sure? You don’t look so good."
         mc "Yeah, I’m gonna go home."
         
-        hide mg-con
+        hide ms-con
         jump ninth                       
     elif temp == "surprise":
         show ms-neu
@@ -344,8 +344,8 @@ label start:
           jump blackmail
        "Yeah. What’re you gonna do about it?":
           jump ydfu
-    
-    label thriteenth:
+   
+    label thirteenth:
     
     show sy-ang
     
