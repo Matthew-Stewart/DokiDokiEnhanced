@@ -1,6 +1,5 @@
 ﻿define urname = 'You'
 
-image letter = "letter.jpeg"
 image bg classroom = "classroom.jpg"
 image bg hallway = "hallway.jpg"
 
@@ -197,6 +196,8 @@ label start:
         mc "Yeah, you're probably right."
         
         hide ms-con
+        hide ms-ang
+        hide ms-neu
         jump ninth
     elif temp == "sorrow":
         show ms-con
@@ -263,6 +264,8 @@ label start:
       
        show sy-ang
        hide ms-ang
+       hide ms-neu
+       hide ms-con
 
        menu:
              "Oh, hey Sayako! I'm really sorry!":
@@ -373,6 +376,7 @@ label start:
           s "Quite crying, you baby..."
        else:
           s "You sadistic moron..."
+       jump end
        
     label blackmail:
        show sy-ann
@@ -386,6 +390,7 @@ label start:
           s "Yeesh, okay! It won’t happen again."
        else:
           s "Alright, fine. I guess you do actually care. I won’t do it again."
+       jump end
     
     label romance:
        play music "Cheery_Monday.mp3"
@@ -405,4 +410,6 @@ label start:
        else:
           s "I love you, [urname]-chan!"
           
-       return
+    label end:
+       
+     return
